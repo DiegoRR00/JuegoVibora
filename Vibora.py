@@ -16,6 +16,8 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+colorsSnake = ['green', 'pink', 'blue', 'purple', 'cyan']
+colorsFood = ['black', 'yellow', 'orange', 'red']
 
 def change(x, y):
     "Change snake direction."
@@ -48,9 +50,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, colorsSnake[randrange(len(colorsSnake))])
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colorsFood[randrange(len(colorsFood))])
     update()
     ontimer(move, 100)
 
